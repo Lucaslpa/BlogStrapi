@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_tag_tag_names",
+  "info": {
+    "name": "Tag Name",
+    "icon": "chess-board"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "maxLength": 10,
+      "minLength": 2
+    }
+  }
+}

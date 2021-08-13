@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "authors",
+  "info": {
+    "name": "Author",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "AuthorName": {
+      "type": "string",
+      "required": true,
+      "maxLength": 10,
+      "minLength": 4
+    },
+    "AuthorDescription": {
+      "type": "richtext",
+      "maxLength": 200,
+      "minLength": 20
+    },
+    "posts": {
+      "via": "authors",
+      "collection": "posts"
+    },
+    "categories": {
+      "via": "authors",
+      "collection": "category",
+      "dominant": true
+    }
+  }
+}

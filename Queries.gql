@@ -1,0 +1,60 @@
+fragment images on UploadFile {
+      name,
+      url
+}
+fragment author on Author {
+      id,
+      AuthorName,
+      AuthorDescription
+}
+fragment post on Posts {
+    id,
+    published_at,
+    Description,
+    Content,
+    AllowComments
+}
+fragment posts on Posts {
+    ...post
+    Image {
+      ...images
+    },
+    categories {
+      Name
+    },
+    authors{
+      ...author
+    },
+}
+
+
+query GET_POSTS_BY_AUTHOR($id: ID!) {
+  posts(where: {
+    authors: {
+     id: $id
+    }
+  }) {
+     ...posts
+    }
+}
+query GET_POSTS {
+  posts {
+...posts
+  }
+}
+query GET_CATEGORIES {
+  categories {
+    Name
+  }
+}
+query GET_POSTS_BY_CATEGORY($category: String!){
+  posts(where:
+  { categories:
+   {
+     Name: $category
+     }
+  })
+ {
+  ...posts
+}}
+

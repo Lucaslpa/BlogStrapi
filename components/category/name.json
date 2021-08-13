@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_category_names",
+  "info": {
+    "name": "name",
+    "icon": "address-book",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    }
+  }
+}

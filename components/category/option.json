@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_category_options",
+  "info": {
+    "name": "Option",
+    "icon": "book-open"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

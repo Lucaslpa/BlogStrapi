@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "settings",
+  "info": {
+    "name": "Settings"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "LogoText": {
+      "type": "string",
+      "default": "Logo",
+      "maxLength": 8,
+      "minLength": 3
+    },
+    "LogoImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "Options": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.options",
+      "required": true
+    }
+  }
+}
