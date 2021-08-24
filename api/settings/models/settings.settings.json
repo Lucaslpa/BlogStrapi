@@ -2,7 +2,8 @@
   "kind": "singleType",
   "collectionName": "settings",
   "info": {
-    "name": "Settings"
+    "name": "Settings",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -14,7 +15,7 @@
     "LogoText": {
       "type": "string",
       "default": "Logo",
-      "maxLength": 8,
+      "maxLength": 30,
       "minLength": 3
     },
     "LogoImage": {
@@ -26,12 +27,6 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
-    },
-    "Options": {
-      "type": "component",
-      "repeatable": true,
-      "component": "menu.options",
-      "required": true
     }
   }
 }

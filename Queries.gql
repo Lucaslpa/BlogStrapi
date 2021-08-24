@@ -1,45 +1,50 @@
 fragment images on UploadFile {
-      name,
-      url
+  name
+  url
 }
 fragment author on Author {
-      id,
-      AuthorName,
-      AuthorDescription
+  id
+  AuthorName
+  AuthorDescription
 }
 fragment post on Posts {
-    id,
-    published_at,
-    Description,
-    Content,
-    AllowComments
+  id
+  published_at
+  Description
+  Content
+  AllowComments
 }
 fragment posts on Posts {
-    ...post
-    Image {
-      ...images
-    },
-    categories {
-      Name
-    },
-    authors{
-      ...author
-    },
+  ...post
+  Image {
+    ...images
+  }
+  categories {
+    Name
+  }
+  authors {
+    ...author
+  }
 }
-
 
 query GET_POSTS_BY_AUTHOR($id: ID!) {
-  posts(where: {
-    authors: {
-     id: $id
-    }
-  }) {
-     ...posts
-    }
+  posts(where: { authors: { id: $id } }) {
+    ...posts
+  }
 }
 query GET_POSTS {
+  categories {
+    Name
+  }
+  setting {
+    LogoText
+    LogoImage {
+      name
+      url
+    }
+  }
   posts {
-...posts
+    ...posts
   }
 }
 query GET_CATEGORIES {
@@ -47,14 +52,26 @@ query GET_CATEGORIES {
     Name
   }
 }
-query GET_POSTS_BY_CATEGORY($category: String!){
-  posts(where:
-  { categories:
-   {
-     Name: $category
-     }
-  })
- {
-  ...posts
-}}
+query GET_POSTS_BY_CATEGORY($category: String!) {
+  posts(where: { categories: { Name: $category } }) {
+    ...posts
+  }
+}
 
+query GET_SETTINGS {
+  categories {
+    Name
+  }
+  setting {
+    LogoText
+    LogoImage {
+      name
+      url
+    }
+  }
+}
+query GET_POST($id: ID!) {
+  post(id: $id) {
+    ...posts
+  }
+}
